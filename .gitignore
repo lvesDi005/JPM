@@ -29,6 +29,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+AccessKey.csv
+tlias-utils-0.0.1-SNAPSHOT.jar
+
 ### VS Code ###
 .vscode/
 
