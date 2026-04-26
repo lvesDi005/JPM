@@ -18,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/admin/employee")
-@Tag(name = "管理员接口")
+@Tag(name = "登录接口")
 @Slf4j
 public class EmployeeController {
 
@@ -29,7 +29,7 @@ public class EmployeeController {
     private JwtProperties jwtProperties;
 
     @PostMapping("/login")
-    @Operation(summary = "管理员登录")
+    @Operation(summary = "用户登录")
     public Result login(@RequestBody LoginDTO loginDTO) {
         Employee employee = employeeMapper.getByUsername(loginDTO.getUsername());
 

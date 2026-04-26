@@ -134,7 +134,7 @@
                             <span class="tech-badge">Spring Boot 3.0</span>
                             <span class="tech-badge">Spring Security</span>
                             <span class="tech-badge">MyBatis</span>
-                            <span class="tech-badge">MySQL 8.0</span>
+                            <span class="tech-badge">MySQL57</span>
                             <span class="tech-badge">Redis</span>
                             <span class="tech-badge">WebSocket</span>
                             <span class="tech-badge">JWT</span>
@@ -190,7 +190,7 @@
 
                 <div id="auth-page" class="page">
                     <div class="card">
-                        <h2>管理员登录</h2>
+                        <h2>用户登录</h2>
                         <form id="admin-login-form">
                             <div class="form-group">
                                 <label>用户名</label>
@@ -204,20 +204,7 @@
                         </form>
                     </div>
 
-                    <div class="card">
-                        <h2>用户登录</h2>
-                        <form id="user-login-form">
-                            <div class="form-group">
-                                <label>用户名</label>
-                                <input type="text" id="user-username" required>
-                            </div>
-                            <div class="form-group">
-                                <label>密码</label>
-                                <input type="password" id="user-password" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">登录</button>
-                        </form>
-                    </div>
+
 
                     <div class="card">
                         <h2>Token信息</h2>
@@ -598,7 +585,7 @@ DELETE /admin/redis/product/springcache/clear
                     <div class="card guide-section">
                         <h3>9. 一键验收清单（迁移完成后）</h3>
                         <ol>
-                            <li>管理员/用户登录成功，token 能正常鉴权。</li>
+                            <li>管理员登录成功，token 能正常鉴权。</li>
                             <li>Redis 的 set/get/delete 全部可用。</li>
                             <li>商品缓存“Redis 缓存 / SpringCache缓存”都可加载并正确显示来源。</li>
                             <li>WebSocket 可连接、收发消息正常。</li>

@@ -30,21 +30,18 @@ function initNavigation() {
 
 function initAuthForms() {
     const adminForm = document.getElementById('admin-login-form');
-    if(adminForm) adminForm.addEventListener('submit', async (e) => { e.preventDefault(); await login('admin'); });
-
-    const userForm = document.getElementById('user-login-form');
-    if(userForm) userForm.addEventListener('submit', async (e) => { e.preventDefault(); await login('user'); });
+    if(adminForm) adminForm.addEventListener('submit', async (e) => { e.preventDefault(); await login(); });
 
     const logoutBtn = document.getElementById('logout-btn');
     if(logoutBtn) logoutBtn.addEventListener('click', logout);
 }
 
-async function login(type) {
-    const username = document.getElementById(`${type}-username`).value;
-    const password = document.getElementById(`${type}-password`).value;
+async function login() {
+    const username = document.getElementById('admin-username').value;
+    const password = document.getElementById('admin-password').value;
 
     try {
-        const url = type === 'admin' ? `${API_BASE}/admin/employee/login` : `${API_BASE}/user/user/login`;
+        const url = `${API_BASE}/admin/employee/login`;
         const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -54,8 +51,8 @@ async function login(type) {
         if (result.code === 1) {
             authToken = result.data.token;
 
-            // 优先取 name，如果没有取 username，最后取 type
-            const displayName = result.data.name || result.data.username || (type === 'admin' ? '管理员' : '用户');
+            // 优先取 name，如果没有取 username，最后取管理员
+            const displayName = result.data.name || result.data.username || '管理员';
 
             // 强制覆盖旧缓存
             localStorage.setItem('authToken', authToken);
